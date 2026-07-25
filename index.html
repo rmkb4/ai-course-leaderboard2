@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoT Kids AI Leaderboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- CDNs for Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Floating Header -->
+  <header class="app-header" id="app-header">
+    <h1 class="main-title">IoT Kids AI Course</h1>
+    <p class="subtitle">Mastering the future, one step at a time! 🚀</p>
+  </header>
+
+  <main class="snap-container">
+
+    <!-- Section 0: Hero Intro -->
+    <section class="hero-section"
+      style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; scroll-snap-align: center;">
+      <div class="hero-content"
+        style="max-width: 800px; padding: 0 20px; display: flex; flex-direction: column; align-items: center;">
+
+        <!-- STRICT LOGO URL OVERRIDE -->
+        <img src="./iotkids_official.png" alt="IoT Kids Logo"
+          style="width: 240px; height: auto; margin-bottom: 20px; animation: floatLogo 4s ease-in-out infinite;" />
+        <h1 style="font-size: 56px; font-weight: 900; margin: 0 0 20px 0;">AI Course Journey</h1>
+        <p style="font-size: 22px; color: #55607a; line-height: 1.6; max-width: 650px;">
+          Welcome to the future! Over the past few weeks, our amazing students dove deep into the world of Artificial
+          Intelligence. From teaching computers how to see faces, to training custom machine learning models, this is
+          the story of what we built together.
+        </p>
+        <button class="btn-start" onclick="document.querySelector('#section-1').scrollIntoView({behavior: 'smooth'})">
+          Start the Journey <span class="arrow">↓</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Section 1: Face Detection -->
+    <section class="snap-section milestone-section" id="section-1">
+      <div class="milestone-content">
+        <div class="milestone-text">
+          <div class="milestone-icon">👁️</div>
+          <h2>Face & Emotion Detection</h2>
+          <p>Teaching AI to see faces and feel the vibe! We built models to read human emotions.</p>
+        </div>
+        <div class="milestone-visualizer">
+          <div class="face-visualizer">
+            <div class="eyes">
+              <div class="eye left-eye"></div>
+              <div class="eye right-eye"></div>
+            </div>
+            <div class="mouth"></div>
+            <div class="emotion-tooltip">Emotion: Happy 98%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Age & Gender Estimation -->
+    <section class="snap-section milestone-section" id="section-2">
+      <div class="milestone-content">
+        <div class="milestone-text">
+          <div class="milestone-icon">👤</div>
+          <h2>Age & Gender Estimation</h2>
+          <p>Guessing demographics from visual input. The AI learned to predict age and gender in real-time.</p>
+        </div>
+        <div class="milestone-visualizer">
+          <div class="scanner-visualizer">
+            <div class="human-silhouette">
+              <div class="head"></div>
+              <div class="torso"></div>
+            </div>
+            <div class="scanner-bar"></div>
+            <div class="digital-counter">Age: <span id="age-counter">0</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Object Detection -->
+    <section class="snap-section milestone-section" id="section-3">
+      <div class="milestone-content">
+        <div class="milestone-text">
+          <div class="milestone-icon">📦</div>
+          <h2>Object Detection</h2>
+          <p>Identifying everyday objects. We trained the machine to see the world like we do.</p>
+        </div>
+        <div class="milestone-visualizer">
+          <div class="object-visualizer">
+            <div class="obj-shape apple">
+              <div class="bounding-box"><span class="box-label">Apple: 99%</span></div>
+            </div>
+            <div class="obj-shape car">
+              <div class="bounding-box"><span class="box-label">Car: 95%</span></div>
+            </div>
+            <div class="obj-shape cup-shape">
+              <div class="bounding-box"><span class="box-label">Cup: 88%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: OCR -->
+    <section class="snap-section milestone-section" id="section-4">
+      <div class="milestone-content">
+        <div class="milestone-text">
+          <div class="milestone-icon">📝</div>
+          <h2>OCR (Text Reading)</h2>
+          <p>Reading printed text and messy handwriting. Extracting data directly from images!</p>
+        </div>
+        <div class="milestone-visualizer">
+          <div class="ocr-visualizer">
+            <div class="ocr-document">
+              <!-- The notebook paper background lines -->
+              <div class="paper-lines"></div>
+
+              <!-- Layer 1: Erases from left to right -->
+              <div class="text-layer text-handwritten">Hello World</div>
+
+              <!-- Layer 2: Reveals from left to right -->
+              <div class="text-layer text-digital">HELLO WORLD</div>
+
+              <!-- The moving laser -->
+              <div class="laser-beam"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Pose Tracking -->
+    <section class="snap-section milestone-section" id="section-5">
+      <div class="milestone-content">
+        <div class="milestone-text">
+          <div class="milestone-icon">🖐️</div>
+          <h2>Hand & Body Pose</h2>
+          <p>Tracking skeleton joints and gestures. The AI can now map human motion.</p>
+        </div>
+        <div class="milestone-visualizer">
+          <div class="pose-visualizer">
+            <div class="skeleton-container">
+              <div class="skel-head"></div>
+              <div class="skel-torso">
+                <div class="skel-joint top"></div>
+                <div class="skel-joint bottom"></div>
+              </div>
+              <div class="skel-limb skel-arm-l">
+                <div class="skel-joint bottom"></div>
+              </div>
+              <div class="skel-limb skel-arm-r">
+                <div class="skel-joint bottom"></div>
+              </div>
+              <div class="skel-limb skel-leg-l">
+                <div class="skel-joint bottom"></div>
+              </div>
+              <div class="skel-limb skel-leg-r">
+                <div class="skel-joint bottom"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Custom ML Models -->
+    <section class="snap-section milestone-section" id="section-6">
+      <div class="milestone-content">
+        <div class="milestone-text">
+          <div class="milestone-icon">🧠</div>
+          <h2>Custom ML Models</h2>
+          <p>The Grand Finale! Students trained custom machine learning models to detect unique objects.</p>
+        </div>
+        <div class="milestone-visualizer">
+          <div class="ml-canvas">
+            <div class="data-block block-red"></div>
+            <div class="data-block block-blue"></div>
+            <div class="data-block block-yellow"></div>
+            <div class="brain-node">🧠</div>
+            <div class="bin bin-red"></div>
+            <div class="bin bin-blue"></div>
+            <div class="bin bin-yellow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+     SECTION 7: THE WINNERS CIRCLE (PODIUM)
+=========================================== -->
+    <section class="podium-section"
+      style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; scroll-snap-align: start; background: #1a1c2e; color: white; padding-top: 40px;">
+
+      <h2 style="font-size: 48px; font-weight: 900; margin-bottom: 120px; z-index: 10; position: relative; color: #f9d71c;">Group A Champions</h2>
+
+      <div class="podium-container" style="display: flex; align-items: flex-end; gap: 20px; height: 350px;">
+
+        <!-- 2ND PLACE (Left) -->
+        <div class="podium-block" style="display: flex; flex-direction: column; align-items: center;">
+          <img id="podium-img-2" src=""
+            style="width: 100px; height: 100px; border-radius: 50%; background: #48c0f0; border: 4px solid white; margin-bottom: 10px;" />
+          <div id="podium-name-2" style="font-weight: 700; margin-bottom: 5px;"></div>
+          <div id="podium-score-2" style="color: #48c0f0; font-weight: 900; margin-bottom: 15px;"></div>
+          <div
+            style="width: 120px; height: 160px; background: #48c0f0; border: 4px solid white; border-bottom: none; border-radius: 12px 12px 0 0; display: flex; justify-content: center; padding-top: 20px; font-size: 40px; font-weight: 900;">
+            2</div>
+        </div>
+
+        <!-- 1ST PLACE (Center) -->
+        <div class="podium-block" style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+          <div style="font-size: 40px; margin-bottom: 0;">👑</div>
+          <img id="podium-img-1" src=""
+            style="width: 130px; height: 130px; border-radius: 50%; background: #f9d71c; border: 5px solid white; margin-bottom: 10px;" />
+          <div id="podium-name-1" style="font-weight: 900; font-size: 24px; margin-bottom: 5px;"></div>
+          <div id="podium-score-1" style="color: #f9d71c; font-weight: 900; margin-bottom: 15px; font-size: 20px;">
+          </div>
+          <div
+            style="width: 140px; height: 220px; background: #f9d71c; border: 4px solid white; border-bottom: none; border-radius: 12px 12px 0 0; display: flex; justify-content: center; padding-top: 20px; font-size: 50px; font-weight: 900; color: #1a1c2e;">
+            1</div>
+        </div>
+
+        <!-- 3RD PLACE (Right) -->
+        <div class="podium-block" style="display: flex; flex-direction: column; align-items: center;">
+          <img id="podium-img-3" src=""
+            style="width: 100px; height: 100px; border-radius: 50%; background: #d86090; border: 4px solid white; margin-bottom: 10px;" />
+          <div id="podium-name-3" style="font-weight: 700; margin-bottom: 5px;"></div>
+          <div id="podium-score-3" style="color: #d86090; font-weight: 900; margin-bottom: 15px;"></div>
+          <div
+            style="width: 120px; height: 120px; background: #d86090; border: 4px solid white; border-bottom: none; border-radius: 12px 12px 0 0; display: flex; justify-content: center; padding-top: 20px; font-size: 40px; font-weight: 900;">
+            3</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+     SECTION 8: FULL LEADERBOARD
+=========================================== -->
+    <section class="leaderboard-section"
+      style="height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; scroll-snap-align: start; background: #f7f9fa;">
+
+      <h2 style="font-size: 36px; font-weight: 900; color: #1a1c2e; margin-bottom: 30px;">Class Rankings</h2>
+
+      <!-- Scrollable Container for the rest of the students -->
+      <div id="leaderboard-list"
+        style="width: 100%; max-width: 600px; height: 70vh; overflow-y: auto; padding-right: 10px; display: flex; flex-direction: column; gap: 15px;">
+        <!-- JS WILL INJECT CARDS HERE -->
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+     DATA INGESTION & LOGIC SCRIPT
+=========================================== -->
+    <script>
+      // 1. The Raw Data Array (Extracted directly from Group A PDF)
+      const groupAData = [
+  { "name": "حذيفة محمد طاهر احمد", "score": 131 },
+  { "name": "أنس محمد حمد", "score": 115 },
+  { "name": "احمد تميم نبيل", "score": 108 },
+  { "name": "رزان اسامة", "score": 103 },
+  { "name": "محسن مرتضی", "score": 103 },
+  { "name": "حسين علي احمد", "score": 102 },
+  { "name": "مجد ايهاب", "score": 100 },
+  { "name": "فاطمة معاد نوري", "score": 90 },
+  { "name": "سيف علي", "score": 90 },
+  { "name": "غنى محمد", "score": 88 },
+  { "name": "سنان سيف عبد الكريم", "score": 72 },
+  { "name": "حسن هاشم", "score": 71 },
+  { "name": "شبر علي باسم", "score": 70 },
+  { "name": "جنة زاهر", "score": 70 },
+  { "name": "عبدالله زكي يحيى", "score": 60 },
+  { "name": "زيد حسام نبيل", "score": 60 },
+  { "name": "فاطمة مخلد", "score": 60 },
+  { "name": "محمد ماهر محمد", "score": 50 },
+  { "name": "اصف مصطفى جواد", "score": 50 },
+  { "name": "محمد هشام", "score": 50 },
+  { "name": "جنى محمد", "score": 48 },
+  { "name": "حمزة عبد الرحمن عصام", "score": 46 },
+  { "name": "جود محمد كريم", "score": 40 },
+  { "name": "يوسف حسن", "score": 38 },
+  { "name": "نور البتول قاسم عبد الحسن", "score": 37 },
+  { "name": "فضل امیر عبدالرزاق", "score": 35 },
+  { "name": "حسین قاسم عبد الحسن", "score": 32 },
+  { "name": "هاني هشام", "score": 30 },
+  { "name": "نايا ياسر كاظم", "score": 28 },
+  { "name": "علي قاسم عبد الحسن", "score": 27 },
+  { "name": "رضا امیر رعد", "score": 21 },
+  { "name": "علي حسين علي", "score": 18 },
+  { "name": "مصطفى محمد عبد الخالق", "score": 17 },
+  { "name": "محمد خليل ابراهيم", "score": 13 },
+  { "name": "عبدالله يوسف مجيد", "score": 12 },
+  { "name": "حسین سرمد عادل", "score": 9 },
+  { "name": "رقية سرمد عادل", "score": 4 }
+];
+
+      // 2. Sort the Array from Highest to Lowest Score
+      const sortedClass = groupAData.sort((a, b) => b.score - a.score);
+
+      // 3. Helper to generate avatars with forced seeds for specific students
+      const getAvatar = (name) => {
+        let seed = name;
+        
+        // Intercept the Top 3 names and use a known male seed for the avatar hash
+        if (name === "حذيفة محمد طاهر احمد") seed = "Jasper"; 
+        if (name === "أنس محمد حمد") seed = "Felix"; 
+        if (name === "احمد تميم نبيل") seed = "Oliver"; 
+        
+        // Fallback to their name for everyone else
+        return `https://api.dicebear.com/7.x/micah/svg?seed=${encodeURIComponent(seed)}&backgroundColor=transparent`;
+      };
+
+      // 4. Populate the Top 3 Podium
+      if (sortedClass.length >= 3) {
+        document.getElementById('podium-name-1').innerText = sortedClass[0].name;
+        document.getElementById('podium-score-1').innerText = sortedClass[0].score + " pts";
+        document.getElementById('podium-img-1').src = getAvatar(sortedClass[0].name);
+
+        document.getElementById('podium-name-2').innerText = sortedClass[1].name;
+        document.getElementById('podium-score-2').innerText = sortedClass[1].score + " pts";
+        document.getElementById('podium-img-2').src = getAvatar(sortedClass[1].name);
+
+        document.getElementById('podium-name-3').innerText = sortedClass[2].name;
+        document.getElementById('podium-score-3').innerText = sortedClass[2].score + " pts";
+        document.getElementById('podium-img-3').src = getAvatar(sortedClass[2].name);
+      }
+
+      // 5. Populate the Leaderboard List (Rank 4 and below)
+      const listContainer = document.getElementById('leaderboard-list');
+
+      // ANTI-FREEZE MEASURE: Create the entire HTML string first, then inject it once
+      let listHTML = '';
+
+      sortedClass.forEach((student, index) => {
+        // We render everyone in the list, but you could start at index 3 to skip the top 3!
+        const rank = index + 1;
+
+        // Create the Chunky Card HTML
+        listHTML += `
+      <div style="display: flex; align-items: center; justify-content: space-between; background: white; padding: 15px 20px; border: 4px solid #1a1c2e; border-radius: 20px; box-shadow: 4px 6px 0px #1a1c2e; transition: transform 0.2s;">
+        
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="font-size: 24px; font-weight: 900; color: #cbd5e1; width: 40px;">#${rank}</div>
+          <img src="${getAvatar(student.name)}" style="width: 50px; height: 50px; border-radius: 50%; background: #f7f9fa; border: 3px solid #e4e7f0;" />
+          <div style="font-size: 18px; font-weight: 800; color: #1a1c2e;">${student.name}</div>
+        </div>
+
+        <div style="background: #f9d71c; padding: 8px 16px; border-radius: 30px; font-weight: 900; border: 3px solid #1a1c2e;">
+          ${student.score} pts
+        </div>
+        
+      </div>
+    `;
+      });
+      
+      // Inject efficiently
+      listContainer.innerHTML = listHTML;
+    </script>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
