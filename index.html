@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>IoT Kids AI Course Journey</title>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <style>
@@ -607,6 +607,113 @@
       border-radius: 20px;
       font-weight: 900;
       border: 3px solid var(--ink);
+    }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 768px) {
+      section {
+        min-height: 100vh;
+        height: auto;
+        padding: 40px 15px;
+      }
+      .hero-logo {
+        width: 180px;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem !important;
+      }
+      .btn {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+      }
+      .milestone-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .milestone-text {
+        flex: 1 1 100%;
+        width: 100%;
+      }
+      .milestone-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+      .milestone-text p {
+        font-size: 1.1rem;
+      }
+      .milestone-visualizer {
+        flex: 1 1 100%;
+        width: 100%;
+        height: 300px;
+      }
+      
+      /* Scale visualizers to fit mobile width */
+      .face { transform: scale(0.8); }
+      .silhouette { transform: scale(0.8); }
+      .objects-container { transform: scale(0.7); }
+      .ocr-document { transform: scale(0.8); }
+      .skeleton { transform: scale(0.8); }
+      .ml-canvas { transform: scale(0.7); left: -40px; }
+
+      /* Leaderboard Podium scaling */
+      #leaderboard-podium h2 {
+        font-size: 2.2rem;
+        margin-bottom: 60px;
+      }
+      .podium-container {
+        gap: 10px;
+        height: 250px;
+      }
+      .podium-col {
+        width: 100px;
+      }
+      .podium-avatar {
+        width: 70px;
+        height: 70px;
+      }
+      .podium-name, .podium-score {
+        font-size: 0.8rem;
+      }
+      .p-1 .podium-avatar { width: 90px; height: 90px; border-width: 4px; }
+      .p-1 .podium-score { font-size: 0.9rem; }
+      .p-1 .podium-block { height: 150px; font-size: 2rem; }
+      .p-2 .podium-block { height: 110px; font-size: 1.5rem; }
+      .p-3 .podium-block { height: 80px; font-size: 1.5rem; }
+
+      /* Leaderboard List scaling */
+      #leaderboard-list-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+      }
+      .list-wrapper {
+        padding-right: 5px;
+      }
+      .list-item {
+        padding: 12px 10px;
+        gap: 10px;
+      }
+      .list-item-left {
+        gap: 10px;
+      }
+      .list-rank {
+        font-size: 1.2rem;
+        width: 30px;
+      }
+      .list-avatar {
+        width: 40px;
+        height: 40px;
+      }
+      .list-name {
+        font-size: 1rem;
+      }
+      .list-score {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
