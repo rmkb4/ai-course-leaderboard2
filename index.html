@@ -1123,13 +1123,14 @@
 
       /* Leaderboard Podium scaling */
       #leaderboard-podium h2 {
-        font-size: 2.2rem;
-        margin-bottom: 60px;
+        font-size: 2.2rem !important;
+        margin-bottom: 0 !important;
       }
 
       .podium-container {
-        gap: 10px;
-        height: 250px;
+        gap: 10px !important;
+        height: 250px !important;
+        justify-content: center !important;
       }
 
       .podium-col {
@@ -1363,8 +1364,10 @@
 
     <!-- Section 7: Leaderboard Podium -->
     <section id="leaderboard-podium" class="milestone-section podium-sec">
-      <h2>Group A Champions</h2>
-      <div class="podium-container">
+      <h2 style="font-size: 48px; font-weight: 900; color: #f9d71c; margin: 0; text-align: center; position: relative; z-index: 20; flex-shrink: 0;">Group A Champions</h2>
+      <!-- Invisible Hard Spacer -->
+      <div style="height: 80px; width: 100%; flex-shrink: 0;"></div>
+      <div class="podium-container" style="display: flex; align-items: flex-end; gap: 20px; height: 350px; position: relative; z-index: 10; justify-content: center;">
         <!-- 2nd Place -->
         <div class="podium-col p-2">
           <img class="podium-avatar" id="pod-img-2" src="" alt="">
