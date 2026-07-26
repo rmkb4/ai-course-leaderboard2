@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -82,15 +83,25 @@
       max-width: 600px;
       padding: 40px;
     }
+
     @keyframes floatLogo {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
+
     .hero-logo {
       width: 240px;
       margin-bottom: 20px;
       animation: floatLogo 4s ease-in-out infinite;
     }
+
     .hero-title {
       font-size: 3rem;
       font-weight: 900;
@@ -106,18 +117,22 @@
       gap: 40px;
       align-items: center;
     }
+
     .milestone-text {
       flex: 0 0 40%;
     }
+
     .milestone-text h2 {
       font-size: 2.5rem;
       font-weight: 900;
       margin-bottom: 20px;
     }
+
     .milestone-text p {
       font-size: 1.25rem;
       line-height: 1.6;
     }
+
     .milestone-visualizer {
       flex: 0 0 60%;
       height: 400px;
@@ -141,6 +156,7 @@
       border-radius: 50%;
       position: relative;
     }
+
     .eye {
       width: 20px;
       height: 30px;
@@ -149,8 +165,15 @@
       position: absolute;
       top: 40px;
     }
-    .eye.left { left: 35px; }
-    .eye.right { right: 35px; }
+
+    .eye.left {
+      left: 35px;
+    }
+
+    .eye.right {
+      right: 35px;
+    }
+
     .mouth {
       width: 60px;
       height: 20px;
@@ -163,6 +186,7 @@
       transform: translateX(-50%);
       transition: all 0.3s;
     }
+
     .face-tooltip {
       position: absolute;
       top: -40px;
@@ -177,22 +201,34 @@
       opacity: 0;
       transition: all 0.3s;
     }
+
     .milestone-section.active .eye {
       animation: blink 3s infinite;
     }
+
     .milestone-section.active .mouth {
       height: 40px;
       border-radius: 0 0 60px 60px;
       bottom: 20px;
     }
+
     .milestone-section.active .face-tooltip {
       transform: translateX(-50%) scale(1);
       opacity: 1;
       transition-delay: 0.5s;
     }
+
     @keyframes blink {
-      0%, 90%, 100% { transform: scaleY(1); }
-      95% { transform: scaleY(0.1); }
+
+      0%,
+      90%,
+      100% {
+        transform: scaleY(1);
+      }
+
+      95% {
+        transform: scaleY(0.1);
+      }
     }
 
     /* --- 2. AGE & GENDER --- */
@@ -202,12 +238,14 @@
       align-items: center;
       position: relative;
     }
+
     .sil-head {
       width: 60px;
       height: 60px;
       background: #cbd5e1;
       border-radius: 50%;
     }
+
     .sil-body {
       width: 120px;
       height: 140px;
@@ -215,6 +253,7 @@
       border-radius: 60px 60px 0 0;
       margin-top: 10px;
     }
+
     .scanner-bar {
       position: absolute;
       left: -20px;
@@ -225,13 +264,20 @@
       top: -10px;
       opacity: 0;
     }
+
     .milestone-section.active .scanner-bar {
       opacity: 1;
       animation: scanMove 2s infinite alternate ease-in-out;
     }
+
     @keyframes scanMove {
-      0% { top: -10px; }
-      100% { top: 180px; }
+      0% {
+        top: -10px;
+      }
+
+      100% {
+        top: 180px;
+      }
     }
 
     /* --- 3. OBJECT DETECTION --- */
@@ -240,21 +286,46 @@
       gap: 30px;
       align-items: flex-end;
     }
+
     .obj {
       position: relative;
     }
-    .obj-apple { width: 60px; height: 60px; background: var(--pink); border-radius: 50%; }
-    .obj-car { width: 100px; height: 50px; background: var(--sky); border-radius: 20px 20px 10px 10px; }
-    .obj-cup { width: 50px; height: 70px; background: var(--yellow); border-radius: 5px 5px 20px 20px; }
+
+    .obj-apple {
+      width: 60px;
+      height: 60px;
+      background: var(--pink);
+      border-radius: 50%;
+    }
+
+    .obj-car {
+      width: 100px;
+      height: 50px;
+      background: var(--sky);
+      border-radius: 20px 20px 10px 10px;
+    }
+
+    .obj-cup {
+      width: 50px;
+      height: 70px;
+      background: var(--yellow);
+      border-radius: 5px 5px 20px 20px;
+    }
+
     .bbox {
       position: absolute;
-      top: -10px; left: -10px; right: -10px; bottom: -10px;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
       border: 4px dashed var(--green);
       opacity: 0;
     }
+
     .box-label {
       position: absolute;
-      top: -30px; left: -5px;
+      top: -30px;
+      left: -5px;
       background: var(--green);
       color: white;
       padding: 4px 8px;
@@ -263,14 +334,27 @@
       font-size: 0.8rem;
       white-space: nowrap;
     }
+
     .milestone-section.active .bbox {
       animation: showBbox 0.5s forwards;
     }
-    .milestone-section.active .obj-apple .bbox { animation-delay: 0.5s; }
-    .milestone-section.active .obj-car .bbox { animation-delay: 1s; }
-    .milestone-section.active .obj-cup .bbox { animation-delay: 1.5s; }
+
+    .milestone-section.active .obj-apple .bbox {
+      animation-delay: 0.5s;
+    }
+
+    .milestone-section.active .obj-car .bbox {
+      animation-delay: 1s;
+    }
+
+    .milestone-section.active .obj-cup .bbox {
+      animation-delay: 1.5s;
+    }
+
     @keyframes showBbox {
-      to { opacity: 1; }
+      to {
+        opacity: 1;
+      }
     }
 
     /* --- 4. OCR --- */
@@ -280,7 +364,9 @@
       position: relative;
       overflow: hidden;
     }
-    .text-handwritten, .text-digital {
+
+    .text-handwritten,
+    .text-digital {
       position: absolute;
       inset: 0;
       display: flex;
@@ -290,16 +376,19 @@
       font-weight: 900;
       white-space: nowrap;
     }
+
     .text-handwritten {
       font-family: 'Brush Script MT', cursive;
       color: #94a3b8;
       clip-path: inset(0 0 0 0);
     }
+
     .text-digital {
       font-family: monospace;
       color: var(--green);
       clip-path: inset(0 100% 0 0);
     }
+
     .laser-beam {
       position: absolute;
       left: 0;
@@ -310,27 +399,48 @@
       box-shadow: 0 0 10px var(--sky);
       opacity: 0;
     }
+
     .milestone-section.active .laser-beam {
       opacity: 1;
       animation: laserMove 3s infinite linear;
     }
+
     .milestone-section.active .text-handwritten {
       animation: eraseText 3s infinite linear;
     }
+
     .milestone-section.active .text-digital {
       animation: revealText 3s infinite linear;
     }
+
     @keyframes laserMove {
-      0% { left: 0%; }
-      100% { left: 100%; }
+      0% {
+        left: 0%;
+      }
+
+      100% {
+        left: 100%;
+      }
     }
+
     @keyframes eraseText {
-      0% { clip-path: inset(0 0 0 0); }
-      100% { clip-path: inset(0 0 0 100%); }
+      0% {
+        clip-path: inset(0 0 0 0);
+      }
+
+      100% {
+        clip-path: inset(0 0 0 100%);
+      }
     }
+
     @keyframes revealText {
-      0% { clip-path: inset(0 100% 0 0); }
-      100% { clip-path: inset(0 0 0 0); }
+      0% {
+        clip-path: inset(0 100% 0 0);
+      }
+
+      100% {
+        clip-path: inset(0 0 0 0);
+      }
     }
 
     /* --- 5. BODY POSE --- */
@@ -339,6 +449,7 @@
       width: 140px;
       height: 240px;
     }
+
     .skel-head {
       width: 40px;
       height: 40px;
@@ -348,6 +459,7 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
     .skel-torso {
       width: 8px;
       height: 100px;
@@ -357,6 +469,7 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
     .skel-limb {
       width: 8px;
       background: var(--ink);
@@ -364,6 +477,7 @@
       transform-origin: top center;
       border-radius: 4px;
     }
+
     .skel-joint {
       position: absolute;
       left: 50%;
@@ -375,23 +489,82 @@
       box-shadow: 0 0 10px var(--pink);
       z-index: 3;
     }
-    .skel-joint.top { top: -8px; }
-    .skel-joint.bottom { bottom: -8px; }
 
-    .arm-l { height: 70px; top: 50px; left: 66px; transform: rotate(20deg); }
-    .arm-r { height: 70px; top: 50px; left: 66px; transform: rotate(-20deg); }
-    .leg-l { height: 90px; top: 140px; left: 66px; transform: rotate(15deg); }
-    .leg-r { height: 90px; top: 140px; left: 66px; transform: rotate(-15deg); }
+    .skel-joint.top {
+      top: -8px;
+    }
 
-    .milestone-section.active .arm-l { animation: waveL 1s infinite alternate ease-in-out; }
-    .milestone-section.active .arm-r { animation: waveR 1s infinite alternate ease-in-out; }
-    .milestone-section.active .leg-l { animation: stepL 1s infinite alternate ease-in-out; }
-    .milestone-section.active .leg-r { animation: stepR 1s infinite alternate ease-in-out; }
+    .skel-joint.bottom {
+      bottom: -8px;
+    }
 
-    @keyframes waveL { to { transform: rotate(120deg); } }
-    @keyframes waveR { to { transform: rotate(-120deg); } }
-    @keyframes stepL { to { transform: rotate(40deg); } }
-    @keyframes stepR { to { transform: rotate(-40deg); } }
+    .arm-l {
+      height: 70px;
+      top: 50px;
+      left: 66px;
+      transform: rotate(20deg);
+    }
+
+    .arm-r {
+      height: 70px;
+      top: 50px;
+      left: 66px;
+      transform: rotate(-20deg);
+    }
+
+    .leg-l {
+      height: 90px;
+      top: 140px;
+      left: 66px;
+      transform: rotate(15deg);
+    }
+
+    .leg-r {
+      height: 90px;
+      top: 140px;
+      left: 66px;
+      transform: rotate(-15deg);
+    }
+
+    .milestone-section.active .arm-l {
+      animation: waveL 1s infinite alternate ease-in-out;
+    }
+
+    .milestone-section.active .arm-r {
+      animation: waveR 1s infinite alternate ease-in-out;
+    }
+
+    .milestone-section.active .leg-l {
+      animation: stepL 1s infinite alternate ease-in-out;
+    }
+
+    .milestone-section.active .leg-r {
+      animation: stepR 1s infinite alternate ease-in-out;
+    }
+
+    @keyframes waveL {
+      to {
+        transform: rotate(120deg);
+      }
+    }
+
+    @keyframes waveR {
+      to {
+        transform: rotate(-120deg);
+      }
+    }
+
+    @keyframes stepL {
+      to {
+        transform: rotate(40deg);
+      }
+    }
+
+    @keyframes stepR {
+      to {
+        transform: rotate(-40deg);
+      }
+    }
 
     /* --- 6. CUSTOM ML --- */
     .ml-canvas {
@@ -399,6 +572,7 @@
       width: 300px;
       height: 280px;
     }
+
     .brain-node {
       position: absolute;
       top: 100px;
@@ -407,6 +581,7 @@
       font-size: 4rem;
       z-index: 2;
     }
+
     .bin-cup {
       position: absolute;
       top: 220px;
@@ -417,9 +592,21 @@
       border-radius: 0 0 12px 12px;
       background: #f1f5f9;
     }
-    .bin-cup.c1 { left: 50px; border-color: var(--pink); }
-    .bin-cup.c2 { left: 130px; border-color: var(--sky); }
-    .bin-cup.c3 { left: 210px; border-color: var(--yellow); }
+
+    .bin-cup.c1 {
+      left: 50px;
+      border-color: var(--pink);
+    }
+
+    .bin-cup.c2 {
+      left: 130px;
+      border-color: var(--sky);
+    }
+
+    .bin-cup.c3 {
+      left: 210px;
+      border-color: var(--yellow);
+    }
 
     .data-block {
       position: absolute;
@@ -431,47 +618,234 @@
       opacity: 0;
       z-index: 1;
     }
-    .d-pink { background: var(--pink); }
-    .d-sky { background: var(--sky); }
-    .d-yellow { background: var(--yellow); }
 
-    .milestone-section.active .d-pink { animation: dropPink 6s infinite; }
-    .milestone-section.active .d-sky { animation: dropSky 6s infinite 2s; }
-    .milestone-section.active .d-yellow { animation: dropYellow 6s infinite 4s; }
+    .d-pink {
+      background: var(--pink);
+    }
+
+    .d-sky {
+      background: var(--sky);
+    }
+
+    .d-yellow {
+      background: var(--yellow);
+    }
+
+    .milestone-section.active .d-pink {
+      animation: dropPink 6s infinite;
+    }
+
+    .milestone-section.active .d-sky {
+      animation: dropSky 6s infinite 2s;
+    }
+
+    .milestone-section.active .d-yellow {
+      animation: dropYellow 6s infinite 4s;
+    }
 
     /* Drop animation templates */
     @keyframes dropPink {
-      0% { top: 0; left: 140px; transform: scale(1); opacity: 0; }
-      10% { top: 0; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
-      25% { top: 100px; left: 140px; transform: scale(0.2); opacity: 0; }
-      35% { top: 100px; left: 140px; transform: scale(0); opacity: 0; }
-      50% { top: 100px; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-out; }
-      60% { top: 80px; left: 60px; transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
-      70% { top: 230px; left: 60px; transform: scale(1); opacity: 1; }
-      85% { top: 230px; left: 60px; transform: scale(1); opacity: 1; }
-      100% { top: 230px; left: 60px; transform: scale(1); opacity: 0; }
+      0% {
+        top: 0;
+        left: 140px;
+        transform: scale(1);
+        opacity: 0;
+      }
+
+      10% {
+        top: 0;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-in;
+      }
+
+      25% {
+        top: 100px;
+        left: 140px;
+        transform: scale(0.2);
+        opacity: 0;
+      }
+
+      35% {
+        top: 100px;
+        left: 140px;
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        top: 100px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-out;
+      }
+
+      60% {
+        top: 80px;
+        left: 60px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-in;
+      }
+
+      70% {
+        top: 230px;
+        left: 60px;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      85% {
+        top: 230px;
+        left: 60px;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        top: 230px;
+        left: 60px;
+        transform: scale(1);
+        opacity: 0;
+      }
     }
+
     @keyframes dropSky {
-      0% { top: 0; left: 140px; transform: scale(1); opacity: 0; }
-      10% { top: 0; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
-      25% { top: 100px; left: 140px; transform: scale(0.2); opacity: 0; }
-      35% { top: 100px; left: 140px; transform: scale(0); opacity: 0; }
-      50% { top: 100px; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-out; }
-      60% { top: 80px; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
-      70% { top: 230px; left: 140px; transform: scale(1); opacity: 1; }
-      85% { top: 230px; left: 140px; transform: scale(1); opacity: 1; }
-      100% { top: 230px; left: 140px; transform: scale(1); opacity: 0; }
+      0% {
+        top: 0;
+        left: 140px;
+        transform: scale(1);
+        opacity: 0;
+      }
+
+      10% {
+        top: 0;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-in;
+      }
+
+      25% {
+        top: 100px;
+        left: 140px;
+        transform: scale(0.2);
+        opacity: 0;
+      }
+
+      35% {
+        top: 100px;
+        left: 140px;
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        top: 100px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-out;
+      }
+
+      60% {
+        top: 80px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-in;
+      }
+
+      70% {
+        top: 230px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      85% {
+        top: 230px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        top: 230px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 0;
+      }
     }
+
     @keyframes dropYellow {
-      0% { top: 0; left: 140px; transform: scale(1); opacity: 0; }
-      10% { top: 0; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
-      25% { top: 100px; left: 140px; transform: scale(0.2); opacity: 0; }
-      35% { top: 100px; left: 140px; transform: scale(0); opacity: 0; }
-      50% { top: 100px; left: 140px; transform: scale(1); opacity: 1; animation-timing-function: ease-out; }
-      60% { top: 80px; left: 220px; transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
-      70% { top: 230px; left: 220px; transform: scale(1); opacity: 1; }
-      85% { top: 230px; left: 220px; transform: scale(1); opacity: 1; }
-      100% { top: 230px; left: 220px; transform: scale(1); opacity: 0; }
+      0% {
+        top: 0;
+        left: 140px;
+        transform: scale(1);
+        opacity: 0;
+      }
+
+      10% {
+        top: 0;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-in;
+      }
+
+      25% {
+        top: 100px;
+        left: 140px;
+        transform: scale(0.2);
+        opacity: 0;
+      }
+
+      35% {
+        top: 100px;
+        left: 140px;
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        top: 100px;
+        left: 140px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-out;
+      }
+
+      60% {
+        top: 80px;
+        left: 220px;
+        transform: scale(1);
+        opacity: 1;
+        animation-timing-function: ease-in;
+      }
+
+      70% {
+        top: 230px;
+        left: 220px;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      85% {
+        top: 230px;
+        left: 220px;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        top: 230px;
+        left: 220px;
+        transform: scale(1);
+        opacity: 0;
+      }
     }
 
     /* --- LEADERBOARD SECTIONS --- */
@@ -480,6 +854,7 @@
       background: var(--ink);
       color: white;
     }
+
     #leaderboard-podium h2 {
       color: var(--yellow);
       font-size: 3rem;
@@ -488,18 +863,21 @@
       position: relative;
       z-index: 10;
     }
+
     .podium-container {
       display: flex;
       align-items: flex-end;
       gap: 20px;
       height: 300px;
     }
+
     .podium-col {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 140px;
     }
+
     .podium-avatar {
       width: 100px;
       height: 100px;
@@ -508,15 +886,18 @@
       margin-bottom: 10px;
       background: #f1f5f9;
     }
+
     .podium-name {
       font-weight: 900;
       text-align: center;
       margin-bottom: 5px;
     }
+
     .podium-score {
       font-weight: 900;
       margin-bottom: 15px;
     }
+
     .podium-block {
       width: 100%;
       border: 4px solid white;
@@ -529,29 +910,65 @@
       font-weight: 900;
       color: white;
     }
+
     /* Rank 1 */
-    .p-1 .podium-avatar { width: 130px; height: 130px; border: 6px solid var(--yellow); }
-    .p-1 .podium-score { color: var(--yellow); font-size: 1.2rem; }
-    .p-1 .podium-block { height: 200px; background: var(--yellow); color: var(--ink); }
+    .p-1 .podium-avatar {
+      width: 130px;
+      height: 130px;
+      border: 6px solid var(--yellow);
+    }
+
+    .p-1 .podium-score {
+      color: var(--yellow);
+      font-size: 1.2rem;
+    }
+
+    .p-1 .podium-block {
+      height: 200px;
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
     /* Rank 2 */
-    .p-2 .podium-avatar { border-color: var(--sky); }
-    .p-2 .podium-score { color: var(--sky); }
-    .p-2 .podium-block { height: 140px; background: var(--sky); }
+    .p-2 .podium-avatar {
+      border-color: var(--sky);
+    }
+
+    .p-2 .podium-score {
+      color: var(--sky);
+    }
+
+    .p-2 .podium-block {
+      height: 140px;
+      background: var(--sky);
+    }
+
     /* Rank 3 */
-    .p-3 .podium-avatar { border-color: var(--pink); }
-    .p-3 .podium-score { color: var(--pink); }
-    .p-3 .podium-block { height: 100px; background: var(--pink); }
+    .p-3 .podium-avatar {
+      border-color: var(--pink);
+    }
+
+    .p-3 .podium-score {
+      color: var(--pink);
+    }
+
+    .p-3 .podium-block {
+      height: 100px;
+      background: var(--pink);
+    }
 
 
     #leaderboard-list-section {
       flex-direction: column;
       padding-top: 60px;
     }
+
     #leaderboard-list-section h2 {
       font-size: 3rem;
       font-weight: 900;
       margin-bottom: 30px;
     }
+
     .list-wrapper {
       width: 100%;
       max-width: 600px;
@@ -562,13 +979,16 @@
       flex-direction: column;
       gap: 15px;
     }
+
     .list-wrapper::-webkit-scrollbar {
       width: 8px;
     }
+
     .list-wrapper::-webkit-scrollbar-thumb {
       background: var(--ink);
       border-radius: 8px;
     }
+
     .list-item {
       display: flex;
       align-items: center;
@@ -579,17 +999,20 @@
       box-shadow: 4px 6px 0px var(--ink);
       border-radius: 20px;
     }
+
     .list-item-left {
       display: flex;
       align-items: center;
       gap: 15px;
     }
+
     .list-rank {
       font-size: 1.5rem;
       font-weight: 900;
       color: #94a3b8;
       width: 40px;
     }
+
     .list-avatar {
       width: 50px;
       height: 50px;
@@ -597,10 +1020,12 @@
       border: 3px solid #cbd5e1;
       background: #f1f5f9;
     }
+
     .list-name {
       font-size: 1.2rem;
       font-weight: 900;
     }
+
     .list-score {
       background: var(--yellow);
       padding: 8px 16px;
@@ -616,100 +1041,159 @@
         height: auto;
         padding: 40px 15px;
       }
+
       .hero-logo {
         width: 180px;
       }
+
       .hero-title {
         font-size: 2.2rem;
       }
+
       .hero-content p {
         font-size: 1.1rem !important;
       }
+
       .btn {
         font-size: 1.2rem;
         padding: 12px 24px;
       }
+
       .milestone-container {
         flex-direction: column;
         text-align: center;
         gap: 20px;
       }
+
       .milestone-text {
         flex: 1 1 100%;
         width: 100%;
       }
+
       .milestone-text h2 {
         font-size: 1.8rem;
         margin-bottom: 10px;
       }
+
       .milestone-text p {
         font-size: 1.1rem;
       }
+
       .milestone-visualizer {
         flex: 1 1 100%;
         width: 100%;
         height: 300px;
       }
-      
+
       /* Scale visualizers to fit mobile width */
-      .face { transform: scale(0.8); }
-      .silhouette { transform: scale(0.8); }
-      .objects-container { transform: scale(0.7); }
-      .ocr-document { transform: scale(0.8); }
-      .skeleton { transform: scale(0.8); }
-      .ml-canvas { transform: scale(0.7); left: -40px; }
+      .face {
+        transform: scale(0.8);
+      }
+
+      .silhouette {
+        transform: scale(0.8);
+      }
+
+      .objects-container {
+        transform: scale(0.7);
+      }
+
+      .ocr-document {
+        transform: scale(0.8);
+      }
+
+      .skeleton {
+        transform: scale(0.8);
+      }
+
+      .ml-canvas {
+        transform: scale(0.7);
+        left: -40px;
+      }
 
       /* Leaderboard Podium scaling */
       #leaderboard-podium h2 {
         font-size: 2.2rem;
         margin-bottom: 60px;
       }
+
       .podium-container {
         gap: 10px;
         height: 250px;
       }
+
       .podium-col {
         width: 100px;
       }
+
       .podium-avatar {
         width: 70px;
         height: 70px;
       }
-      .podium-name, .podium-score {
+
+      .podium-name,
+      .podium-score {
         font-size: 0.8rem;
       }
-      .p-1 .podium-avatar { width: 90px; height: 90px; border-width: 4px; }
-      .p-1 .podium-score { font-size: 0.9rem; }
-      .p-1 .podium-block { height: 150px; font-size: 2rem; }
-      .p-2 .podium-block { height: 110px; font-size: 1.5rem; }
-      .p-3 .podium-block { height: 80px; font-size: 1.5rem; }
+
+      .p-1 .podium-avatar {
+        width: 90px;
+        height: 90px;
+        border-width: 4px;
+      }
+
+      .p-1 .podium-score {
+        font-size: 0.9rem;
+      }
+
+      .p-1 .podium-block {
+        height: 150px;
+        font-size: 2rem;
+      }
+
+      .p-2 .podium-block {
+        height: 110px;
+        font-size: 1.5rem;
+      }
+
+      .p-3 .podium-block {
+        height: 80px;
+        font-size: 1.5rem;
+      }
 
       /* Leaderboard List scaling */
       #leaderboard-list-section h2 {
         font-size: 2.2rem;
         margin-bottom: 20px;
       }
+
       .list-wrapper {
         padding-right: 5px;
       }
+
       .list-item {
         padding: 12px 10px;
         gap: 10px;
       }
+
       .list-item-left {
         gap: 10px;
       }
+
       .list-rank {
         font-size: 1.2rem;
         width: 30px;
       }
+
       .list-avatar {
         width: 40px;
         height: 40px;
       }
+
       .list-name {
         font-size: 1rem;
       }
+
       .list-score {
         padding: 6px 12px;
         font-size: 0.9rem;
@@ -717,6 +1201,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="snap-container">
@@ -727,7 +1212,9 @@
         <img src="iotkids_official.png" alt="IoT Kids Logo" class="hero-logo" />
         <h1 class="hero-title">AI Course Journey</h1>
         <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 30px; font-weight: 600; color: #475569;">
-          Welcome to the future! Over the past few weeks, our amazing students dove deep into the world of Artificial Intelligence. From teaching computers how to see faces, to training custom machine learning models, this is the story of what we built together.
+          Welcome to the future! Over the past few weeks, our amazing students dove deep into the world of Artificial
+          Intelligence. From teaching computers how to see faces, to training custom machine learning models, this is
+          the story of what we built together.
         </p>
         <a href="#m1" class="btn">Start the Journey ↓</a>
       </div>
@@ -756,7 +1243,8 @@
       <div class="milestone-container">
         <div class="milestone-text">
           <h2>Age & Gender Estimation</h2>
-          <p>Guessing demographics from visual input. The AI learned to predict age and gender by analyzing facial structures.</p>
+          <p>Guessing demographics from visual input. The AI learned to predict age and gender by analyzing facial
+            structures.</p>
         </div>
         <div class="milestone-visualizer">
           <div class="silhouette">
@@ -773,13 +1261,20 @@
       <div class="milestone-container">
         <div class="milestone-text">
           <h2>Object Detection</h2>
-          <p>Identifying everyday objects. We trained the machine to see the world like we do, picking out items from a scene.</p>
+          <p>Identifying everyday objects. We trained the machine to see the world like we do, picking out items from a
+            scene.</p>
         </div>
         <div class="milestone-visualizer">
           <div class="objects-container">
-            <div class="obj obj-apple"><div class="bbox"><span class="box-label">Apple: 99%</span></div></div>
-            <div class="obj obj-car"><div class="bbox"><span class="box-label">Car: 95%</span></div></div>
-            <div class="obj obj-cup"><div class="bbox"><span class="box-label">Cup: 88%</span></div></div>
+            <div class="obj obj-apple">
+              <div class="bbox"><span class="box-label">Apple: 99%</span></div>
+            </div>
+            <div class="obj obj-car">
+              <div class="bbox"><span class="box-label">Car: 95%</span></div>
+            </div>
+            <div class="obj obj-cup">
+              <div class="bbox"><span class="box-label">Cup: 88%</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -816,10 +1311,18 @@
               <div class="skel-joint top"></div>
               <div class="skel-joint bottom"></div>
             </div>
-            <div class="skel-limb arm-l"><div class="skel-joint bottom"></div></div>
-            <div class="skel-limb arm-r"><div class="skel-joint bottom"></div></div>
-            <div class="skel-limb leg-l"><div class="skel-joint bottom"></div></div>
-            <div class="skel-limb leg-r"><div class="skel-joint bottom"></div></div>
+            <div class="skel-limb arm-l">
+              <div class="skel-joint bottom"></div>
+            </div>
+            <div class="skel-limb arm-r">
+              <div class="skel-joint bottom"></div>
+            </div>
+            <div class="skel-limb leg-l">
+              <div class="skel-joint bottom"></div>
+            </div>
+            <div class="skel-limb leg-r">
+              <div class="skel-joint bottom"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -830,7 +1333,8 @@
       <div class="milestone-container">
         <div class="milestone-text">
           <h2>Custom ML Models</h2>
-          <p>The Grand Finale! Students gathered data and trained custom machine learning models to detect unique objects of their choosing.</p>
+          <p>The Grand Finale! Students gathered data and trained custom machine learning models to detect unique
+            objects of their choosing.</p>
         </div>
         <div class="milestone-visualizer">
           <div class="ml-canvas">
@@ -838,7 +1342,7 @@
             <div class="bin-cup c1"></div>
             <div class="bin-cup c2"></div>
             <div class="bin-cup c3"></div>
-            
+
             <div class="data-block d-pink"></div>
             <div class="data-block d-sky"></div>
             <div class="data-block d-yellow"></div>
@@ -849,7 +1353,9 @@
 
     <!-- Section 7: Leaderboard Podium -->
     <section id="leaderboard-podium" class="milestone-section podium-sec">
-      <h2>Group A Champions</h2>
+      <h2
+        style="font-size: 48px; font-weight: 900; margin-bottom: 80px; margin-top: -100px; color: #f9d71c; z-index: 10; position: relative;">
+        Group A Champions</h2>
       <div class="podium-container">
         <!-- 2nd Place -->
         <div class="podium-col p-2">
@@ -894,7 +1400,7 @@
     if (window.location.hash) {
       history.replaceState(null, null, window.location.pathname + window.location.search);
     }
-    
+
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.querySelector('.snap-container').scrollTo(0, 0);
@@ -974,9 +1480,9 @@
     // Helper to generate consistent avatars
     const getAvatar = (name) => {
       let seed = name;
-      if (name === "حذيفة محمد طاهر احمد") seed = "Jasper"; 
-      if (name === "أنس محمد حمد") seed = "Felix"; 
-      if (name === "احمد تميم نبيل") seed = "Oliver"; 
+      if (name === "حذيفة محمد طاهر احمد") seed = "Jasper";
+      if (name === "أنس محمد حمد") seed = "Felix";
+      if (name === "احمد تميم نبيل") seed = "Oliver";
       return `https://api.dicebear.com/7.x/micah/svg?seed=${encodeURIComponent(seed)}&backgroundColor=transparent`;
     };
 
@@ -1014,4 +1520,5 @@
 
   </script>
 </body>
+
 </html>
