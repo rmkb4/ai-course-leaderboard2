@@ -252,6 +252,17 @@
       border: 4px dashed var(--green);
       opacity: 0;
     }
+    .box-label {
+      position: absolute;
+      top: -30px; left: -5px;
+      background: var(--green);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
     .milestone-section.active .bbox {
       animation: showBbox 0.5s forwards;
     }
@@ -353,6 +364,20 @@
       transform-origin: top center;
       border-radius: 4px;
     }
+    .skel-joint {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background-color: var(--pink);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--pink);
+      z-index: 3;
+    }
+    .skel-joint.top { top: -8px; }
+    .skel-joint.bottom { bottom: -8px; }
+
     .arm-l { height: 70px; top: 50px; left: 66px; transform: rotate(20deg); }
     .arm-r { height: 70px; top: 50px; left: 66px; transform: rotate(-20deg); }
     .leg-l { height: 90px; top: 140px; left: 66px; transform: rotate(15deg); }
@@ -459,7 +484,9 @@
       color: var(--yellow);
       font-size: 3rem;
       font-weight: 900;
-      margin-bottom: 60px;
+      margin-bottom: 120px;
+      position: relative;
+      z-index: 10;
     }
     .podium-container {
       display: flex;
@@ -643,9 +670,9 @@
         </div>
         <div class="milestone-visualizer">
           <div class="objects-container">
-            <div class="obj obj-apple"><div class="bbox"></div></div>
-            <div class="obj obj-car"><div class="bbox"></div></div>
-            <div class="obj obj-cup"><div class="bbox"></div></div>
+            <div class="obj obj-apple"><div class="bbox"><span class="box-label">Apple: 99%</span></div></div>
+            <div class="obj obj-car"><div class="bbox"><span class="box-label">Car: 95%</span></div></div>
+            <div class="obj obj-cup"><div class="bbox"><span class="box-label">Cup: 88%</span></div></div>
           </div>
         </div>
       </div>
@@ -678,11 +705,14 @@
         <div class="milestone-visualizer">
           <div class="skeleton">
             <div class="skel-head"></div>
-            <div class="skel-torso"></div>
-            <div class="skel-limb arm-l"></div>
-            <div class="skel-limb arm-r"></div>
-            <div class="skel-limb leg-l"></div>
-            <div class="skel-limb leg-r"></div>
+            <div class="skel-torso">
+              <div class="skel-joint top"></div>
+              <div class="skel-joint bottom"></div>
+            </div>
+            <div class="skel-limb arm-l"><div class="skel-joint bottom"></div></div>
+            <div class="skel-limb arm-r"><div class="skel-joint bottom"></div></div>
+            <div class="skel-limb leg-l"><div class="skel-joint bottom"></div></div>
+            <div class="skel-limb leg-r"><div class="skel-joint bottom"></div></div>
           </div>
         </div>
       </div>
@@ -749,6 +779,12 @@
   </div>
 
   <script>
+    // --- 0. RESET SCROLL ON LOAD ---
+    // Browsers often cache scroll position on refresh. This forces the page to start at the top.
+    window.onload = () => {
+      document.querySelector('.snap-container').scrollTo(0, 0);
+    };
+
     // --- 1. INTERSECTION OBSERVER FOR ANIMATIONS ---
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
