@@ -590,7 +590,7 @@
     <!-- Section 0: Hero Intro -->
     <section id="hero">
       <div class="hero-content card">
-        <img src="iotkids.png" alt="IoT Kids Logo" class="hero-logo" />
+        <img src="iotkids_official.png" alt="IoT Kids Logo" class="hero-logo" />
         <h1 class="hero-title">AI Course Journey</h1>
         <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 30px; font-weight: 600; color: #475569;">
           Welcome to the future! Over the past few weeks, our amazing students dove deep into the world of Artificial Intelligence. From teaching computers how to see faces, to training custom machine learning models, this is the story of what we built together.
@@ -825,7 +825,7 @@
       if (name === "حذيفة محمد طاهر احمد") seed = "Jasper"; 
       if (name === "أنس محمد حمد") seed = "Felix"; 
       if (name === "احمد تميم نبيل") seed = "Oliver"; 
-      return \`https://api.dicebear.com/7.x/micah/svg?seed=\${encodeURIComponent(seed)}&backgroundColor=transparent\`;
+      return `https://api.dicebear.com/7.x/micah/svg?seed=${encodeURIComponent(seed)}&backgroundColor=transparent`;
     };
 
     // Populate Podium
@@ -846,16 +846,16 @@
     // Populate List using array map to a single string injection
     const listHTML = studentsData.map((student, index) => {
       const rank = index + 1;
-      return \`
+      return `
         <div class="list-item">
           <div class="list-item-left">
-            <div class="list-rank">#\${rank}</div>
-            <img class="list-avatar" src="\${getAvatar(student.name)}" alt="">
-            <div class="list-name">\${student.name}</div>
+            <div class="list-rank">#${rank}</div>
+            <img class="list-avatar" src="${getAvatar(student.name)}" alt="">
+            <div class="list-name">${student.name}</div>
           </div>
-          <div class="list-score">\${student.score} pts</div>
+          <div class="list-score">${student.score} pts</div>
         </div>
-      \`;
+      `;
     }).join('');
 
     document.getElementById('leaderboard-list').innerHTML = listHTML;
