@@ -780,10 +780,19 @@
 
   <script>
     // --- 0. RESET SCROLL ON LOAD ---
-    // Browsers often cache scroll position on refresh. This forces the page to start at the top.
-    window.onload = () => {
-      document.querySelector('.snap-container').scrollTo(0, 0);
-    };
+    // Prevent browser from restoring previous scroll position or jumping to a URL hash
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelector('.snap-container').scrollTo(0, 0);
+      }, 50);
+    });
 
     // --- 1. INTERSECTION OBSERVER FOR ANIMATIONS ---
     const observer = new IntersectionObserver((entries) => {
