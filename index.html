@@ -859,9 +859,9 @@
       color: var(--yellow);
       font-size: 3rem;
       font-weight: 900;
-      margin-bottom: 120px;
-      position: relative;
-      z-index: 10;
+      margin-top: 0;
+      margin-bottom: 100px;
+      text-align: center;
     }
 
     .podium-container {
@@ -1353,9 +1353,7 @@
 
     <!-- Section 7: Leaderboard Podium -->
     <section id="leaderboard-podium" class="milestone-section podium-sec">
-      <h2
-        style="font-size: 48px; font-weight: 900; position: absolute; top: 15%; color: #f9d71c; z-index: 10; margin: 0;">
-        Group A Champions</h2>
+      <h2>Group A Champions</h2>
       <div class="podium-container">
         <!-- 2nd Place -->
         <div class="podium-col p-2">
@@ -1366,6 +1364,7 @@
         </div>
         <!-- 1st Place -->
         <div class="podium-col p-1">
+          <div style="font-size: 2rem; margin-bottom: -10px; z-index: 2;">👑</div>
           <img class="podium-avatar" id="pod-img-1" src="" alt="">
           <div class="podium-name" id="pod-name-1"></div>
           <div class="podium-score" id="pod-score-1"></div>
@@ -1408,15 +1407,18 @@
     });
 
     // --- 1. INTERSECTION OBSERVER FOR ANIMATIONS ---
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
           if (entry.target.classList.contains('podium-sec')) {
-            fireConfetti();
+            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#48c0f0', '#d86090', '#f9d71c', '#1a1c2e'] });
+            obs.unobserve(entry.target);
           }
         } else {
-          entry.target.classList.remove('active');
+          if (!entry.target.classList.contains('podium-sec')) {
+            entry.target.classList.remove('active');
+          }
         }
       });
     }, { threshold: 0.5 });
@@ -1479,11 +1481,7 @@
 
     // Helper to generate consistent avatars
     const getAvatar = (name) => {
-      let seed = name;
-      if (name === "حذيفة محمد طاهر احمد") seed = "Jasper";
-      if (name === "أنس محمد حمد") seed = "Felix";
-      if (name === "احمد تميم نبيل") seed = "Oliver";
-      return `https://api.dicebear.com/7.x/micah/svg?seed=${encodeURIComponent(seed)}&backgroundColor=transparent`;
+      return `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(name)}&backgroundColor=transparent`;
     };
 
     // Populate Podium
@@ -1502,8 +1500,8 @@
     }
 
     // Populate List using array map to a single string injection
-    const listHTML = studentsData.map((student, index) => {
-      const rank = index + 1;
+    const listHTML = studentsData.slice(3).map((student, index) => {
+      const rank = index + 4;
       return `
         <div class="list-item">
           <div class="list-item-left">
